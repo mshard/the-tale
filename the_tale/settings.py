@@ -175,7 +175,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.admin',
-
+    'django.contrib.staticfiles',
     'dext.less',
     'dext.settings',
     'dext.forms',
@@ -236,6 +236,12 @@ INSTALLED_APPS = [
 
 if TESTS_RUNNING:
     INSTALLED_APPS.append('test_without_migrations')
+    
+    STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)
 
 ###############################
 # AMQP
